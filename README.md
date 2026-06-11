@@ -73,7 +73,3 @@ The Augmented Dickey-Fuller test confirms the series is non-stationary (p = 0.91
 │   └── slides.pptx           # presentation (Spanish)
 └── README.md
 ```
-
-## Reproduce it
-
-R >= 4.0. The first notebook cell installs any missing packages. Open `notebooks/Proyecto_Final_TS.ipynb` with the Jupyter R kernel (IRkernel), or paste the cells into RStudio and run top to bottom.
