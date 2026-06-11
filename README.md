@@ -15,12 +15,11 @@ Mercamadrid is **the largest fresh food hub in Europe**: if you buy fresh produc
 2. **Seasonality**: how much does the time of year change where products come from?
 3. **Logistics and distance**: how far does food travel to reach Madrid, and how different is that journey for domestic and imported products?
 
-## Key findings
+## What the data says
 
-1. **Domestic supply is the backbone; imports are the safety net.** 75% of the 2.4 billion kg traded between January and September 2024 is Spanish. The remaining 25% keeps shelves stocked when national production cannot.
-2. **Seasonality is the main import driver.** Melons, watermelons or oranges are imported off season, while pineapple or kiwi are imported because there is no meaningful national production. Four supply patterns emerge: exclusively domestic (carrot), exclusively imported (pineapple), counter season imports (melon) and mixed supply (apple).
-3. **Within the top selling vegetables, imports travel 11 times farther.** On average, about 4,300 km more per kilo than their domestic equivalents, a heavy and largely invisible share of the supply chain's carbon footprint.
-4. **Year-round availability has become the norm.** The deseasonalization of consumption consolidates import dependency: fresh produce is expected on the shelf every month, whatever the season.
+### 1. Three quarters of the volume is Spanish
+
+Domestic supply is the backbone: 75% of the 2.4 billion kg traded between January and September 2024 comes from Spain. The remaining 25% keeps shelves stocked when national production cannot.
 
 ![Purchase distribution map](figures/03_dashboard_map.png)
 
@@ -32,17 +31,23 @@ Mercamadrid is **the largest fresh food hub in Europe**: if you buy fresh produc
 
 **Why focus on vegetables?** It is the largest category (66% of all kilos) and the only one with the full spectrum of origin behaviors, from exclusively domestic products (carrot) to exclusively imported ones (pineapple), which makes origin and seasonality patterns truly observable. Meat looks similar on aggregate, but its 25% import share comes almost entirely from beef: pork, chicken and turkey are virtually 100% Spanish. The product level analysis covers the 14 top selling vegetable categories, more than half of all vegetable kilos sold.
 
-### Four supply patterns
+### 2. Seasonality drives the imports
+
+Melons, watermelons or oranges are imported off season, while pineapple or kiwi are imported because there is no meaningful national production. Every top selling vegetable falls into one of four supply patterns:
 
 ![Four supply patterns](figures/04_supply_patterns.png)
 
-*Monthly kilos by origin. Every top vegetable falls into one of these four patterns. Melon is the clearest case of imports stepping in exactly when national production stops: year-round availability, at a cost.*
+*Monthly kilos by origin. Melon is the clearest case of imports stepping in exactly when national production stops: year-round availability, at a cost.*
 
-### The distance gap
+### 3. Imported products travel 11 times farther
+
+Across the top selling vegetables, an imported kilo travels on average 11 times farther than its domestic equivalent, about 4,300 km more: a heavy and largely invisible share of the supply chain's carbon footprint.
 
 ![Distance by product](figures/08_distance_by_product.png)
 
-*Same product, two journeys: average distance per kilo for the domestic (green) and imported (navy) version of each top vegetable sold with both origins, sorted by the gap. The study's aggregate result: imports travel on average 11 times farther, about 4,300 km more per kilo.*
+*Same product, two journeys: average distance per kilo for the domestic (green) and imported (navy) version of each top vegetable sold with both origins, sorted by the gap.*
+
+**The bottom line:** year-round availability has become the norm. The deseasonalization of consumption consolidates import dependency: fresh produce is expected on the shelf every month, whatever the season, and the kilometers travel with it.
 
 ## How it is built
 
