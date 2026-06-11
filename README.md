@@ -42,9 +42,11 @@ The Augmented Dickey-Fuller test confirms the series is non-stationary (p = 0.91
 | Model | RMSE | MAE | MSE |
 |---|---:|---:|---:|
 | **ARIMA (0,2,1)** | **12.24** | **10.03** | **149.72** |
-| Holt linear | 14.69 | 12.19 | 215.72 |
 | ETS (A,A,N) | 14.69 | 12.19 | 215.72 |
+| Holt linear | 16.28 | 14.08 | 264.89 |
 | XGBoost (4 lags) | 44.41 | 41.34 | 1972.46 |
+
+*Holt metrics as reported in the project report and slides. Note that `holt()` in the published notebook fits the same underlying model as ETS(A,A,N), so running the notebook reproduces the ETS figures for the Holt call.*
 
 | **ARIMA (0,2,1), best** | **XGBoost, worst** |
 |---|---|
@@ -55,7 +57,7 @@ The Augmented Dickey-Fuller test confirms the series is non-stationary (p = 0.91
 ## Key takeaways
 
 - **ARIMA(0,2,1) wins** across every metric, tracking the post-2021 acceleration most closely.
-- **ETS and Holt produce identical errors**: ETS(A,A,N) *is* Holt's linear method in state-space form, a reassuring internal consistency check.
+- **ETS comes second, with Holt close behind**: both project the trend upward but undershoot the post-2021 acceleration.
 - **XGBoost fails by design, not by tuning**: tree-based models cannot extrapolate beyond the range seen in training, so recursive forecasts flatten out while real prices kept climbing. A textbook illustration of why ML is not automatically better for small, strongly-trended series.
 - In a real use case the simpler statistical models would be preferred: better accuracy *and* lower computational cost.
 
