@@ -3,7 +3,7 @@
 ![Python](https://img.shields.io/badge/Python-3.9%2B-3776AB?logo=python&logoColor=white)
 ![pandas](https://img.shields.io/badge/pandas-cleaning%20%2B%20transformation-150458?logo=pandas&logoColor=white)
 ![GeoPy](https://img.shields.io/badge/GeoPy-geocoding%20%2B%20Haversine-2E3D6E)
-![Power BI](https://img.shields.io/badge/Power%20BI-7%20page%20dashboard-F2C811)
+![Power BI](https://img.shields.io/badge/Power%20BI-interactive%20dashboard-F2C811)
 
 Origin and sustainability analysis of **Mercamadrid, the largest fresh food distribution hub in Europe**. Using its 2024 open sales data (volume, price and origin of every product traded), this project measures how much of Madrid's fresh food is imported, what drives those imports, and what that means in transport distance and environmental footprint.
 
@@ -24,7 +24,9 @@ Origin and sustainability analysis of **Mercamadrid, the largest fresh food dist
 
 ![Origin by category](figures/02_origin_by_category.png)
 
-*Fish is the most import dependent category; vegetables and meat hover around 25%. The product level analysis focuses on the 14 top selling vegetable categories, which account for more than half of all vegetable kilos sold.*
+*Fish is the most import dependent category; vegetables and meat hover around 25%.*
+
+**Why focus on vegetables?** It is the largest category (66% of all kilos) and the only one with the full spectrum of origin behaviors, from exclusively domestic products (carrot) to exclusively imported ones (pineapple), which makes origin and seasonality patterns truly observable. Meat looks similar on aggregate, but its 25% import share comes almost entirely from beef: pork, chicken and turkey are virtually 100% Spanish. The product level analysis covers the 14 top selling vegetable categories, more than half of all vegetable kilos sold.
 
 ## The dashboard
 
