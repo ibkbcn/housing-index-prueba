@@ -3,7 +3,6 @@
 ![R](https://img.shields.io/badge/R-4.x-276DC3?logo=r&logoColor=white)
 ![Models](https://img.shields.io/badge/models-Holt%20%C2%B7%20ARIMA%20%C2%B7%20ETS%20%C2%B7%20XGBoost-blue)
 ![Data](https://img.shields.io/badge/data-INE%20(Spain)-success)
-![License](https://img.shields.io/badge/license-MIT-lightgrey)
 
 Time-series forecasting of the **Housing Price Index (IPV) for new housing in Catalonia**, benchmarking classical statistical models against machine learning over 18 years of quarterly data (2007-2024): a series that spans the 2008 crash, the long recovery and the post-pandemic boom.
 
