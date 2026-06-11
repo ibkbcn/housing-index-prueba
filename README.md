@@ -51,6 +51,7 @@ The Augmented Dickey-Fuller test confirms the series is non-stationary (p = 0.91
 
 ## Key takeaways
 
+- **A solid result overall for a 3.5-year horizon**: the best model stays within roughly 6% average error (MAE of 10 points on index levels around 176) using nothing but the series' own history. The miss is one-sided though: actual prices rose faster than every forecast, so the models got the direction right but understated the strength of the rise.
 - **ARIMA(0,2,1) wins** across every metric, tracking the post-2021 acceleration most closely.
 - **ETS comes second, with Holt close behind**: both project the trend upward but undershoot the post-2021 acceleration.
 - **XGBoost fails by design, not by tuning**: tree-based models cannot extrapolate beyond the range seen in training, so recursive forecasts flatten out while real prices kept climbing. A textbook illustration of why ML is not automatically better for small, strongly-trended series.
