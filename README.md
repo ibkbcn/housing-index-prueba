@@ -34,13 +34,9 @@ Origin and sustainability analysis of **Mercamadrid, the largest fresh food dist
 
 ### Four supply patterns
 
-| **Always domestic: carrot** | **Always imported: pineapple** |
-|---|---|
-| ![Carrot pattern](figures/04_pattern_carrot.png) | ![Pineapple pattern](figures/05_pattern_pineapple.png) |
-| **Counter season imports: melon** | **Mixed supply: apple** |
-| ![Melon pattern](figures/06_pattern_melon.png) | ![Apple pattern](figures/07_pattern_apple.png) |
+![Four supply patterns](figures/04_supply_patterns.png)
 
-*Monthly kilos by origin (green: Spain, navy: imported). Every top vegetable falls into one of these four patterns. Melon is the clearest case of imports stepping in exactly when national production stops: year-round availability, at a cost.*
+*Monthly kilos by origin. Every top vegetable falls into one of these four patterns. Melon is the clearest case of imports stepping in exactly when national production stops: year-round availability, at a cost.*
 
 ### The cost of distance
 
