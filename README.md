@@ -23,7 +23,7 @@ Mercamadrid buys from 101 origins all over the world, but most of the volume nev
 
 ![Purchase distribution map](figures/03_dashboard_map.png)
 
-*Purchase distribution across the 101 origins, from the Power BI dashboard: green is Spain, navy the rest of the world.*
+*Purchase distribution map: green is Spain, navy the rest of the world.*
 
 Domestic supply is the backbone: 75% of the 2.4 billion kg traded between January and September 2024 comes from Spain, and the remaining 25% keeps shelves stocked when national production cannot. The split barely moves across categories, with one exception:
 
