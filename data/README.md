@@ -15,4 +15,4 @@ Processed dataset behind the analysis and the Power BI dashboard. One row per pr
 | `categoria_general` | General typology: Vegetales, Carne, Pescado, Otros |
 | `nacional_inter` | Origin flag: ESPAÑA (domestic) vs RESTO (imported) |
 
-**Source:** [Mercamadrid statistics portal](https://www.mercamadrid.es/estadisticas/), volume and prices dataset (raw file `volpre2024.csv`). Prices and volumes as published by Mercamadrid; origin coordinates and distances to Madrid are computed in notebook 02.
+**Source:** [Mercamadrid: volumen y precio, Madrid City Council open data portal](https://data.europa.eu/data/datasets/https-datosmadrid-es-egob-catalogo-300357-0-mercamadrid-volumen-precio) (raw file `volpre2024.csv`). Prices and volumes as published by Mercamadrid; origin coordinates and distances to Madrid are computed in notebook 02.

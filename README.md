@@ -19,7 +19,7 @@ Origin and sustainability analysis of **Mercamadrid, the largest fresh food dist
 
 1. **Domestic supply is the backbone; imports are the safety net.** 75% of the 2.4 billion kg traded between January and September 2024 is Spanish. The remaining 25% keeps shelves stocked when national production cannot.
 2. **Seasonality is the main import driver.** Melons, watermelons or oranges are imported off season, while pineapple or kiwi are imported because there is no meaningful national production. Four supply patterns emerge: exclusively domestic (carrot), exclusively imported (pineapple), counter season imports (melon) and mixed supply (apple).
-3. **Imported products travel 11 times farther.** On average, an imported product covers about 4,300 km more than its domestic equivalent, a heavy and largely invisible share of the supply chain's carbon footprint.
+3. **Within the top selling vegetables, imports travel 11 times farther.** On average, about 4,300 km more per kilo than their domestic equivalents, a heavy and largely invisible share of the supply chain's carbon footprint.
 4. **Year-round availability has become the norm.** The deseasonalization of consumption consolidates import dependency: fresh produce is expected on the shelf every month, whatever the season.
 
 ![Origin by category](figures/02_origin_by_category.png)
@@ -27,6 +27,22 @@ Origin and sustainability analysis of **Mercamadrid, the largest fresh food dist
 *Fish is the most import dependent category; vegetables and meat hover around 25%.*
 
 **Why focus on vegetables?** It is the largest category (66% of all kilos) and the only one with the full spectrum of origin behaviors, from exclusively domestic products (carrot) to exclusively imported ones (pineapple), which makes origin and seasonality patterns truly observable. Meat looks similar on aggregate, but its 25% import share comes almost entirely from beef: pork, chicken and turkey are virtually 100% Spanish. The product level analysis covers the 14 top selling vegetable categories, more than half of all vegetable kilos sold.
+
+### Four supply patterns
+
+| **Always domestic: carrot** | **Always imported: pineapple** |
+|---|---|
+| ![Carrot pattern](figures/04_pattern_carrot.png) | ![Pineapple pattern](figures/05_pattern_pineapple.png) |
+| **Counter season imports: melon** | **Mixed supply: apple** |
+| ![Melon pattern](figures/06_pattern_melon.png) | ![Apple pattern](figures/07_pattern_apple.png) |
+
+*Monthly kilos by origin (green: Spain, navy: imported). Every top vegetable falls into one of these four patterns. Melon is the clearest case of imports stepping in exactly when national production stops: year-round availability, at a cost.*
+
+### The cost of distance
+
+![Distance by product](figures/08_distance_by_product.png)
+
+*Same product, two journeys: average distance per kilo for the domestic (blue) and imported (red) version of each top vegetable, sorted by the gap. Across these products, imports travel on average 11 times farther, about 4,300 km more per kilo.*
 
 ## The dashboard
 
@@ -70,7 +86,7 @@ volpre2024 (open data) -> Python: cleaning + categorization -> GeoPy geocoding +
 
 | | |
 |---|---|
-| **Source** | [Mercamadrid statistics portal](https://www.mercamadrid.es/estadisticas/), volume and prices open dataset (volpre2024) |
+| **Source** | [Mercamadrid: volumen y precio, Madrid City Council open data portal](https://data.europa.eu/data/datasets/https-datosmadrid-es-egob-catalogo-300357-0-mercamadrid-volumen-precio) (raw file `volpre2024.csv`) |
 | **Scope** | Volume (kg), prices (EUR/kg) and geographic origin of every product traded, January to September 2024 |
 | **Processed dataset** | [`data/mercamadrid.xlsx`](data/mercamadrid.xlsx), the output of notebook 01 used by the dashboard |
 | **Dictionary** | [`data/README.md`](data/README.md) |
