@@ -1,75 +1,86 @@
-# Forecasting the Housing Price Index in Catalonia
+# Where Does Madrid's Food Come From?
 
-![R](https://img.shields.io/badge/R-4.x-276DC3?logo=r&logoColor=white)
-![Models](https://img.shields.io/badge/models-Holt%20%C2%B7%20ARIMA%20%C2%B7%20ETS%20%C2%B7%20XGBoost-blue)
-![Data](https://img.shields.io/badge/data-INE%20(Spain)-success)
+![Python](https://img.shields.io/badge/Python-3.9%2B-3776AB?logo=python&logoColor=white)
+![pandas](https://img.shields.io/badge/pandas-cleaning%20%2B%20transformation-150458?logo=pandas&logoColor=white)
+![GeoPy](https://img.shields.io/badge/GeoPy-geocoding%20%2B%20Haversine-2E3D6E)
+![Power BI](https://img.shields.io/badge/Power%20BI-7%20page%20dashboard-F2C811)
 
-Time-series forecasting of the **Housing Price Index (IPV) for new housing in Catalonia**, benchmarking classical statistical models against machine learning over 18 years of quarterly data (2007-2024): a series that spans the 2008 crash, the long recovery and the post-pandemic boom.
+Origin and sustainability analysis of **Mercamadrid, the largest fresh food distribution hub in Europe**. Using its 2024 open sales data (volume, price and origin of every product traded), this project measures how much of Madrid's fresh food is imported, what drives those imports, and what that means in transport distance and environmental footprint.
 
-## The question
+![Key stats](figures/01_key_stats.png)
 
-Given 14.5 years of history, how accurately can each family of models forecast housing prices **14 quarters (3.5 years) ahead**? The series is a demanding test bench: two opposing cycles, a strong trend and no marked seasonality.
+## The questions
 
-![Historical IPV series](figures/01_series_ipv.png)
+1. **Import weight**: what is the real share of imports in the fresh produce supply?
+2. **Seasonality**: how much does the time of year change where products come from?
+3. **Logistics and distance**: how far does food travel to reach Madrid, and how different is that journey for domestic and imported products?
 
-*Quarterly IPV for new housing in Catalonia (2015 = 100). The shaded band marks the 14 quarters the models must predict.*
+## Key findings
 
-## Data
+1. **Domestic supply is the backbone; imports are the safety net.** 75% of the 2.4 billion kg traded between January and September 2024 is Spanish. The remaining 25% keeps shelves stocked when national production cannot.
+2. **Seasonality is the main import driver.** Melons, watermelons or oranges are imported off season, while pineapple or kiwi are imported because there is no meaningful national production. Four supply patterns emerge: exclusively domestic (carrot), exclusively imported (pineapple), counter season imports (melon) and mixed supply (apple).
+3. **Imported products travel 11 times farther.** On average, an imported product covers about 4,300 km more than its domestic equivalent, a heavy and largely invisible share of the supply chain's carbon footprint.
+4. **Year-round availability has become the norm.** The deseasonalization of consumption consolidates import dependency: fresh produce is expected on the shelf every month, whatever the season.
 
-| | |
-|---|---|
-| **Source** | [INE, Housing Price Index (IPV), base 2015](https://www.ine.es/jaxiT3/Tabla.htm?t=25171), built from notarial deeds of actual transactions |
-| **Scope** | New housing · Catalonia · index values (2015 = 100) |
-| **Frequency** | Quarterly, 2007Q1 to 2024Q4 (72 observations) |
-| **Split** | Train: 58 obs (2007Q1-2021Q2) · Test: 14 obs (2021Q3-2024Q4), an 80/20 split |
+![Origin by category](figures/02_origin_by_category.png)
 
-The exact dataset used (~5 KB) is included in [`data/vivienda.csv`](data/vivienda.csv), extracted from the official INE export, so the whole project reproduces offline. The full INE download is also quarterly but mixes every region, three housing segments and variation rates; see [`data/README.md`](data/README.md) for the data dictionary and the exact filter.
+*Fish is the most import dependent category; vegetables and meat hover around 25%. The product level analysis focuses on the 14 top selling vegetable categories, which account for more than half of all vegetable kilos sold.*
 
-## Methodology
+## The dashboard
 
-The Augmented Dickey-Fuller test confirms the series is non-stationary (p = 0.91), guiding model choice. All models are trained on the same 58 quarters and evaluated on the same 14 held-out quarters:
+Seven interactive Power BI pages: general overview, meat vs vegetables vs fish comparison, volume analysis and four product level deep dives that expose the seasonal import patterns.
 
-1. **Holt linear exponential smoothing**: deterministic benchmark for trended, non-seasonal series.
-2. **ARIMA**: `auto.arima()` selects ARIMA(0,2,1).
-3. **ETS**: state-space exponential smoothing; selects ETS(A,A,N).
-4. **XGBoost**: 4 lagged features, recursive multi-step forecasting.
+![Dashboard map](figures/03_dashboard_map.png)
 
-## Results
+*Purchase distribution by origin, from the dashboard: green is Spain, navy is the rest of the world. Open [`powerbi/Mercamadrid.pbix`](powerbi/Mercamadrid.pbix) in Power BI Desktop to explore it.*
 
-| Model | RMSE | MAE | MSE |
-|---|---:|---:|---:|
-| **ARIMA (0,2,1)** | **12.24** | **10.03** | **149.72** |
-| ETS (A,A,N) | 14.69 | 12.19 | 215.72 |
-| Holt linear | 16.28 | 14.08 | 264.89 |
-| XGBoost (4 lags) | 44.41 | 41.34 | 1972.46 |
+## How it is built
 
-| **ARIMA (0,2,1), best** | **XGBoost, worst** |
-|---|---|
-| ![ARIMA forecast](figures/03_forecast_arima.png) | ![XGBoost forecast](figures/05_forecast_xgboost.png) |
+```
+volpre2024 (open data) -> Python: cleaning + categorization -> GeoPy geocoding + Haversine distances -> Excel -> Power BI
+```
 
-*Both charts are exported straight from the notebook. The Holt and ETS forecast charts are in [`figures/`](figures).*
-
-## Key takeaways
-
-- **A solid result overall for a 3.5-year horizon**: the best model stays within roughly 6% average error (MAE of 10 points on index levels around 176) using nothing but the series' own history. The miss is one-sided though: actual prices rose faster than every forecast, so the models got the direction right but understated the strength of the rise.
-- **ARIMA(0,2,1) wins** across every metric, tracking the post-2021 acceleration most closely.
-- **ETS comes second, with Holt close behind**: both project the trend upward but undershoot the post-2021 acceleration.
-- **XGBoost fails by design, not by tuning**: tree-based models cannot extrapolate beyond the range seen in training, so recursive forecasts flatten out while real prices kept climbing. A textbook illustration of why ML is not automatically better for small, strongly-trended series.
-- In a real use case the simpler statistical models would be preferred: better accuracy *and* lower computational cost.
+- [`notebooks/01_cleaning_transformation.ipynb`](notebooks/01_cleaning_transformation.ipynb): cleans 27,571 monthly records with pandas (type fixes, duplicated headers, price normalization) and builds the analysis categories: product groups, general typology (vegetables, meat, fish) and the domestic vs imported flag.
+- [`notebooks/02_geocoding_distances.ipynb`](notebooks/02_geocoding_distances.ipynb): geocodes the 101 origins with GeoPy (Nominatim), builds geometries with GeoPandas and computes each origin's distance to Madrid with the Haversine formula.
+- [`powerbi/Mercamadrid.pbix`](powerbi/Mercamadrid.pbix): the interactive dashboard built on the processed dataset.
+- [`reports/article.pdf`](reports/article.pdf): four page write-up of the study (Spanish). [`reports/slides.pptx`](reports/slides.pptx): final presentation (Spanish).
 
 ## Repository structure
 
 ```
 ├── data/
-│   ├── vivienda.csv          # IPV new housing, Catalonia (INE), exact data used
+│   ├── mercamadrid.xlsx      # processed dataset, 27,571 rows x 16 columns
 │   └── README.md             # data dictionary & source
 ├── notebooks/
-│   └── Proyecto_Final_TS.ipynb   # full analysis (R kernel)
-├── figures/                  # exported plots
+│   ├── 01_cleaning_transformation.ipynb
+│   └── 02_geocoding_distances.ipynb
+├── powerbi/
+│   └── Mercamadrid.pbix      # 7 page interactive dashboard
+├── figures/                  # charts used in this README
 ├── reports/
-│   ├── report.pdf            # written report (Spanish)
+│   ├── article.pdf           # written study (Spanish)
 │   └── slides.pptx           # presentation (Spanish)
+├── requirements.txt
 └── README.md
 ```
-> Final project for *Time Series & Forecasting*, MSc in Data Science, La Salle (Ramon Llull University), 2025.
-> **Authors:** Ivan Betriu Kahlenberg · Marc Fort Garcia
+
+## Data
+
+| | |
+|---|---|
+| **Source** | [Mercamadrid statistics portal](https://www.mercamadrid.es/estadisticas/), volume and prices open dataset (volpre2024) |
+| **Scope** | Volume (kg), prices (EUR/kg) and geographic origin of every product traded, January to September 2024 |
+| **Processed dataset** | [`data/mercamadrid.xlsx`](data/mercamadrid.xlsx), the output of notebook 01 used by the dashboard |
+| **Dictionary** | [`data/README.md`](data/README.md) |
+
+## Reproduce it
+
+```bash
+pip install -r requirements.txt
+```
+
+Run the notebooks in order (01 cleaning, 02 distances), then open the `.pbix` in Power BI Desktop. The raw monthly CSV (volpre2024) is available from the Mercamadrid statistics portal.
+
+---
+
+*Personal data analytics project. Author: Ivan Betriu Kahlenberg.*
