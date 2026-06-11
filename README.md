@@ -15,6 +15,8 @@ Given 14.5 years of history, how accurately can each family of models forecast h
 
 ![Historical IPV series](figures/01_series_ipv.png)
 
+*Quarterly IPV for new housing in Catalonia (2015 = 100). The shaded band marks the 14 quarters the models must predict.*
+
 ## Data
 
 | | |
@@ -47,8 +49,8 @@ The Augmented Dickey-Fuller test confirms the series is non-stationary (p = 0.91
 | **ARIMA (0,2,1), best** | **XGBoost, worst** |
 |---|---|
 | ![ARIMA forecast](figures/03_forecast_arima.png) | ![XGBoost forecast](figures/05_forecast_xgboost.png) |
-| **Holt linear** | **ETS (A,A,N)** |
-| ![Holt forecast](figures/02_forecast_holt.png) | ![ETS forecast](figures/04_forecast_ets.png) |
+
+*Both charts are exported straight from the notebook. The Holt and ETS forecast charts are in [`figures/`](figures).*
 
 ## Key takeaways
 
