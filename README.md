@@ -6,9 +6,6 @@
 
 Time-series forecasting of the **Housing Price Index (IPV) for new housing in Catalonia**, benchmarking classical statistical models against machine learning over 18 years of quarterly data (2007-2024): a series that spans the 2008 crash, the long recovery and the post-pandemic boom.
 
-> Final project for *Time Series & Forecasting*, MSc in Data Science, La Salle (Ramon Llull University), 2025.
-> **Authors:** Ivan Betriu Kahlenberg · Marc Fort Garcia
-
 ## The question
 
 Given 14.5 years of history, how accurately can each family of models forecast housing prices **14 quarters (3.5 years) ahead**? The series is a demanding test bench: two opposing cycles, a strong trend and no marked seasonality.
@@ -73,3 +70,5 @@ The Augmented Dickey-Fuller test confirms the series is non-stationary (p = 0.91
 │   └── slides.pptx           # presentation (Spanish)
 └── README.md
 ```
+> Final project for *Time Series & Forecasting*, MSc in Data Science, La Salle (Ramon Llull University), 2025.
+> **Authors:** Ivan Betriu Kahlenberg · Marc Fort Garcia
