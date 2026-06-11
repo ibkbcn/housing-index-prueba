@@ -73,14 +73,4 @@ volpre2024 (open data) -> Python: cleaning + categorization -> GeoPy geocoding +
 | **Processed dataset** | [`data/mercamadrid.xlsx`](data/mercamadrid.xlsx), the output of notebook 01 used by the dashboard |
 | **Dictionary** | [`data/README.md`](data/README.md) |
 
-## Reproduce it
-
-```bash
-pip install -r requirements.txt
-```
-
-Run the notebooks in order (01 cleaning, 02 distances), then open the `.pbix` in Power BI Desktop. The raw monthly CSV (volpre2024) is available from the Mercamadrid statistics portal.
-
----
-
 *Personal data analytics project. Author: Ivan Betriu Kahlenberg.*
