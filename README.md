@@ -22,6 +22,10 @@ Origin and sustainability analysis of **Mercamadrid, the largest fresh food dist
 3. **Within the top selling vegetables, imports travel 11 times farther.** On average, about 4,300 km more per kilo than their domestic equivalents, a heavy and largely invisible share of the supply chain's carbon footprint.
 4. **Year-round availability has become the norm.** The deseasonalization of consumption consolidates import dependency: fresh produce is expected on the shelf every month, whatever the season.
 
+![Purchase distribution map](figures/03_dashboard_map.png)
+
+*Purchase distribution across the 101 origins, from the Power BI dashboard: green is Spain, navy the rest of the world.*
+
 ![Origin by category](figures/02_origin_by_category.png)
 
 *Fish is the most import dependent category; vegetables and meat hover around 25%.*
@@ -42,15 +46,7 @@ Origin and sustainability analysis of **Mercamadrid, the largest fresh food dist
 
 ![Distance by product](figures/08_distance_by_product.png)
 
-*Same product, two journeys: average distance per kilo for the domestic (blue) and imported (red) version of each top vegetable, sorted by the gap. Across these products, imports travel on average 11 times farther, about 4,300 km more per kilo.*
-
-## The dashboard
-
-Seven interactive Power BI pages: general overview, meat vs vegetables vs fish comparison, volume analysis and four product level deep dives that expose the seasonal import patterns.
-
-![Dashboard map](figures/03_dashboard_map.png)
-
-*Purchase distribution by origin, from the dashboard: green is Spain, navy is the rest of the world. Open [`powerbi/Mercamadrid.pbix`](powerbi/Mercamadrid.pbix) in Power BI Desktop to explore it.*
+*Same product, two journeys: average distance per kilo for the domestic (green) and imported (navy) version of each top vegetable sold with both origins, sorted by the gap. The study's aggregate result: imports travel on average 11 times farther, about 4,300 km more per kilo.*
 
 ## How it is built
 
@@ -60,7 +56,7 @@ volpre2024 (open data) -> Python: cleaning + categorization -> GeoPy geocoding +
 
 - [`notebooks/01_cleaning_transformation.ipynb`](notebooks/01_cleaning_transformation.ipynb): cleans 27,571 monthly records with pandas (type fixes, duplicated headers, price normalization) and builds the analysis categories: product groups, general typology (vegetables, meat, fish) and the domestic vs imported flag.
 - [`notebooks/02_geocoding_distances.ipynb`](notebooks/02_geocoding_distances.ipynb): geocodes the 101 origins with GeoPy (Nominatim), builds geometries with GeoPandas and computes each origin's distance to Madrid with the Haversine formula.
-- [`powerbi/Mercamadrid.pbix`](powerbi/Mercamadrid.pbix): the interactive dashboard built on the processed dataset.
+- [`powerbi/Mercamadrid.pbix`](powerbi/Mercamadrid.pbix): the interactive dashboard built on the processed dataset, seven pages covering the general overview, meat vs vegetables vs fish, volume analysis and four product deep dives. Open it in Power BI Desktop.
 - [`reports/article.pdf`](reports/article.pdf): four page write-up of the study (Spanish). [`reports/slides.pptx`](reports/slides.pptx): final presentation (Spanish).
 
 ## Repository structure
