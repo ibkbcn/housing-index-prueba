@@ -76,15 +76,4 @@ The Augmented Dickey-Fuller test confirms the series is non-stationary (p = 0.91
 
 ## Reproduce it
 
-Requires R >= 4.0. The first notebook cell installs any missing packages (`forecast`, `tseries`, `xgboost`, `data.table`, `Metrics`, `ggplot2`).
-
-```bash
-# Option A: Jupyter with the R kernel (IRkernel)
-jupyter notebook notebooks/Proyecto_Final_TS.ipynb
-
-# Option B: copy the cells into RStudio and run top to bottom
-```
-
-## License
-
-[MIT](LICENSE). Data © [INE](https://www.ine.es), reused under its [open data policy](https://www.ine.es/aviso_legal).
+R >= 4.0. The first notebook cell installs any missing packages. Open `notebooks/Proyecto_Final_TS.ipynb` with the Jupyter R kernel (IRkernel), or paste the cells into RStudio and run top to bottom.
