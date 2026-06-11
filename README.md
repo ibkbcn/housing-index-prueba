@@ -46,8 +46,6 @@ The Augmented Dickey-Fuller test confirms the series is non-stationary (p = 0.91
 | Holt linear | 16.28 | 14.08 | 264.89 |
 | XGBoost (4 lags) | 44.41 | 41.34 | 1972.46 |
 
-*Holt metrics as reported in the project report and slides. Note that `holt()` in the published notebook fits the same underlying model as ETS(A,A,N), so running the notebook reproduces the ETS figures for the Holt call.*
-
 | **ARIMA (0,2,1), best** | **XGBoost, worst** |
 |---|---|
 | ![ARIMA forecast](figures/03_forecast_arima.png) | ![XGBoost forecast](figures/05_forecast_xgboost.png) |
