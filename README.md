@@ -1,11 +1,11 @@
-# Where Does Madrid's Food Come From?
+# Where Does Madrid's Fresh Food Come From?
 
 ![Python](https://img.shields.io/badge/Python-3.9%2B-3776AB?logo=python&logoColor=white)
 ![pandas](https://img.shields.io/badge/pandas-cleaning%20%2B%20transformation-150458?logo=pandas&logoColor=white)
 ![GeoPy](https://img.shields.io/badge/GeoPy-geocoding%20%2B%20Haversine-2E3D6E)
 ![Power BI](https://img.shields.io/badge/Power%20BI-F2C811)
 
-Mercamadrid is **the largest fresh food hub in Europe**: if you eat in Madrid, your food has probably passed through it. Every sale (volume, price, origin) ends up in its open data, so I took the 2024 figures and followed the trail: how much of Madrid's food is imported, why, and what those imports cost in kilometers.
+Mercamadrid is **the largest fresh food hub in Europe**: if you buy fresh produce in Madrid, there is a good chance it passed through here. Every sale inside the market (volume, price, origin) ends up in its open data, so I took the 2024 figures and followed the trail: how much of what Mercamadrid sells is imported, why, and what those imports cost in kilometers.
 
 ![Key stats](figures/01_key_stats.png)
 
